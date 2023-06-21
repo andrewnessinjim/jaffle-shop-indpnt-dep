@@ -1,7 +1,10 @@
 {{
     config(
         materialized='incremental',
-        unique_key='order_id'
+        unique_key='order_id',
+        indexes=[
+            {'columns': ['customer_id']}
+        ]
     )
 }}
 with order_amounts as (
